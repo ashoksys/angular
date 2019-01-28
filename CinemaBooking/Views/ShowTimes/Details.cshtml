@@ -1,0 +1,36 @@
+﻿@model CinemaBooking.Models.ShowTime
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ShowTime</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShowId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Showtimes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Showtimes)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

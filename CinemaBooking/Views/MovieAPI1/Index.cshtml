@@ -1,0 +1,75 @@
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<form id="MyForm">
+
+    @* Id: <input name="Id" type="text" />*@
+    Name : <input name="Name" type="text" />
+    available : <input name="available" type="text" />
+
+
+    <input type="button" value="Save" id="Save" />
+    <input type="button" value="Update"  id="Delete"/>
+</form>
+<script>
+
+    $(document).ready(function () {
+        GetMoviesList();
+    });
+
+    var Movies = {
+        Id: 0,
+        Name: "",
+       
+    }
+
+    // Get all Employees to display
+    function getmovieslist() {
+        // Call Web API to get a list of Employees
+        $.ajax({
+            url: "/api/MoviesAPI/GetMovies/",
+            type: 'GET',
+            dataType: 'json',
+            success: function (Movies) {
+               MoviesListSuccess(Movies);
+            },
+            error: function (request, message, error) {
+                handleException(request, message, error);
+            }
+        });
+    }
+</script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Save").click(function () {
+
+                var Id = $("[name='Id']").val();
+                var Name = $("[name='Name']").val();
+                var available = $("[name='availabe']").val();
+
+                var dataToPost = {
+                    Id: Id,
+                    Name: Name,
+                    available: available
+
+
+                };
+
+                $.ajax(
+                    {
+                        type: "Post",
+                        url: "/api/MoviesAPI/PostMovie/",
+                        processData: true,
+                        dataType: "json",
+                        contentType: 'application/json',
+
+                        data: JSON.stringify(dataToPost),
+                        success: function (data) {
+                            alert("success");
+                        }
+
+
+                    });
+            });
+        });
+
+</script>
