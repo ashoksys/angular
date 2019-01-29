@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CinemaBooking.Controllers
 {
     [EnableCors("AllowCors")]
+
     public class BookingsController : Controller // controllers 
     {
         protected readonly Moviedbcontext _dbcontext;
